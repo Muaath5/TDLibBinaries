@@ -5,5 +5,5 @@ You can contibute by sending a pull request that contains build binaries for any
 ## Avaliable languages
 | Language  | Version | Architictures | Type (Debug Or Release) | Operating Systems |
 |-----------|---------|---------------|-------------------------|-------------------|
-| C#        |  1.7.8  | x64|x86       | Release                 | Telegram.Td.dll   |
+| C#        |  1.7.8  | x64~x86       | Release                 | Telegram.Td.dll   |
 
