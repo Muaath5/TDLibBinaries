@@ -1,5 +1,6 @@
 # TDLib Binaries
 This project created to store [TDLib](https://github.com/tdlib/td) binaries.
+**It is allowed to use or download these files and binaries.**
 
 ## Avaliable languages
 | Language      | Version  | Architictures | Type (Debug Or Release) | Operating Systems | Notes                                                                                |
@@ -14,8 +15,13 @@ This project created to store [TDLib](https://github.com/tdlib/td) binaries.
 
 ## Contributing
 Any one is allowed to submit a pull request to add any binary he/she has.
-At first you should create a Language directory if not exists, Like `c#`, `tdjson`, `Javascript`.
-After that upload the binaries in a folder contains its version, (e.g. 1.7.8, 1.7.1)
-Finally, Add the info in the README, And Submit the pull request!
+### Steps:
+1. Create a Language directory if not exists, Like `c#`, `tdjson`, `tdweb`, `jni`, etc.., And go into
+2. Create a version folder (e.g. `v1.7.8`, `v1.7.1`), And go into
+3. Create a Processor-Arch folder [`x64` OR `x86`], And go into
+4. Create a `release` OR `debug` folder, And go into
+5. Upload the binaries (The biggset work)
+6. Add the info of binary you've uploaded in the README table
+7. Submit the pull request!
 
 Happy contibuting!
