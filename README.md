@@ -17,10 +17,10 @@ Any one is allowed to submit a pull request to add any binary he/she has.
 
 ### Steps:
 1. On your fork, create a directory with the following path: (from outer to inner folder)
-  1. Language/variant (`C#`, `java`, `tdweb`, `tdjson`, etc.)
-  2. Version (1.0.0, 1.7.0, 1.7.8, etc.)
-  3. Processor architecture (`x86`, `x86_64`, `ARM`, `ARM64`, etc.)
-  4. Build type (`debug` or `release`)
+    1. Language/variant (`C#`, `java`, `tdweb`, `tdjson`, etc.)
+    2. Version (1.0.0, 1.7.0, 1.7.8, etc.)
+    3. Processor architecture (`x86`, `x86_64`, `ARM`, `ARM64`, etc.)
+    4. Build type (`debug` or `release`)
   Example: `c#/1.7.9/x86_64/release`
 2. Upload the binaries into that folder
 3. Add the info about the binary to the README table
