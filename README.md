@@ -9,6 +9,7 @@ This project created to store [TDLib](https://github.com/tdlib/td) binaries.
 | C#            |  1.7.0   | x64           | Debug & Release         | Windows           |                                     C++/CLI                                          |
 | JaveScript    |  1.7.0   |       All     |             None        | Web               | This version might not save sessions and need a login on every refresh               |
 | JaveScript    |  1.7.2   |       All     |             None        | Web               | This version is downloaded from the NPM registry (<https://npmjs.com/package/tdweb)> |
+| JavaScript    |  1.7.8   |       All     |             None        | Web               | Also published at <https://npmjs.com/package/@dibgram/tdweb>                         |
 | TDJson (Soon) |  1.7.9   | x64 & x86     | Release                 | Linux             | This binaries is same as binaries of Python, PHP, And any language can call C libs   |
 
 ## Contributing
