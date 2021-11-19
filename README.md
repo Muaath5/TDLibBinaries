@@ -12,10 +12,13 @@ This repository contains prebuild [TDLib](https://github.com/tdlib/td) binaries,
 | JavaScript    |  1.7.0   |       -       |        -         | Web                 | This version might not save sessions and need a login on every refresh                  |
 | TDJson        |  1.7.9   | All           | Release          | Linux               | This binary is same as that of Python, PHP, and any other language that can call C libs |
 
-## Contributing
-Any one is allowed to submit a pull request to add any binary he/she has.
+## Contributions:
+You can contribute by doing one of these things:
+- Adding binaries that doesn't has automatic build
+- Creating a Powershell/Bash script file
+- Running a building script for any language you want
 
-### Steps:
+### Adding binaries
 1. On your fork, create a directory with the following path: (from outer to inner folder)
     1. Language/variant (`c#`, `java`, `tdweb`, `tdjson`, etc.)
     2. Version (v1.0.0, v1.7.0, v1.7.8, etc.)
@@ -24,6 +27,18 @@ Any one is allowed to submit a pull request to add any binary he/she has.
   Example: `/c#/1.7.9/x86_64/release`
 2. Upload the binaries into that folder
 3. Add the info about the binary to the README table
-4. Submit the pull request
 
-Happy contibuting!
+### Creating script
+The script should accept input, And has a basic output.
+It should be with extensions `.ps1` and `.sh`
+And suggested to create functions
+
+### Running script
+Make sure you has the requirements of building TDLib.
+You should clone **_recursively_**
+```
+git clone https://github.com/Muaath5/TDLibBinaries.git --recursive
+```
+Then execute any script you like with info
+===
+After that, You can submit to help community to create apps based on TDLib.
