@@ -107,6 +107,14 @@ function InstallTdLib {
     fi
 }
 
+if [$1 == '-h'] || [$1 == '--help'] {
+    echo "This is building TDLib for Node.js in Browser"
+    echo "You need to install emsdk from https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html. Do not forget to add `emcmake` and `emmake` to the PATH environment variable via `emsdk/emsdk_env.sh` script"
+    echo "Building will build OpenSSL also"
+    echo "The result will be in td/example/tdweb/"
+    echo "Use -h Or --help to get this help message"
+}
+
 # Executing methods
 InstallTdLib
 cd ./example/web

@@ -30,9 +30,10 @@ You can contribute by doing one of these things:
 3. Add the info about the binary to the README table
 
 ### Creating script
-The script should accept input, And has a basic output.
-It should be with extensions `.ps1` and `.sh`
-And suggested to create functions
+Terms of script:
+- Printing help message if argument `-h` or `--help` passed.
+- It should be with extensions `.ps1` or `.sh`
+- Script should has functions `InstallTdLib` and `BuildTdLib` at least
 
 ### Running script
 Make sure you has 1.5 GB **free** of RAM.
@@ -40,6 +41,6 @@ At first you should clone **_recursively_**:
 ```
 git clone https://github.com/Muaath5/TDLibBinaries.git --recursive
 ```
-Then execute any script you like, And follow [_AddBinaries_ explanation](#Adding_Binaries)
+Then execute any script you like, And follow [_AddBinaries_ explanation](#adding-binaries)
 ___
 After that, You can submit to help community to create apps based on TDLib.

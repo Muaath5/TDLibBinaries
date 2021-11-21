@@ -36,8 +36,7 @@ if ($1 == '-o')
     $outputFolder = $2;
 }
 # Display help message
-if ($1 == '-h')
-{
+if [$1 == '-h'] || [$1 == '--help'] {
     echo "This is help message for TDJson Building Script"
     echo "-o <string> == To provide building directory name, Default is \"buildphp\""
     echo "-h == Get this help message"

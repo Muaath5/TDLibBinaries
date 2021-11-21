@@ -35,14 +35,16 @@ function Install-TdLib {
 
 function Display-Help {
     "This is help message in C# Building Script"
-    "/o <string> === You should provide output folder name [Optional]"
-    "/a <string> === You should provide building architicture (`x64` Or `Win32`) [Optional]"
+    '/o <string> === New output folder name, Default = build + $a + csharp [Optional]'
+    "/a <string> === You should provide building architicture (`x64` Or `x86`) [Optional]"
     "/h === Display this help message"
 }
 
 # Archiricture should be "x64" Or "Win32" ONLY
 $buildArch = 'x64'
-$outputFolder = "build$arch" + 'csharp'
+$outputFolder = "build$buildArch" + 'csharp'
+
+# Reading command line input
 for ($i = 0; $i -lt $args.count; $i++) {
     if ($args[$i] -eq "/o"){ $outputFolder = $args[ $i+1 ]}
     if ($args[$i] -eq "-o"){ $outputFolder = $args[ $i+1 ]}
@@ -50,7 +52,23 @@ for ($i = 0; $i -lt $args.count; $i++) {
     if ($args[$i] -eq "-a"){ $buildArch = $args[ $i+1 ]}
     if ($args[$i] -eq "-h"){ Display-Help; exit }
     if ($args[$i] -eq "/h"){ Display-Help; exit }
+    if ($args[$i] -eq "--help"){ Display-Help; exit }
+    if ($args[$i] -eq "/help"){ Display-Help; exit }
 }
+# Fixing user error
+if ($buildArch -eq 'x86')
+{
+    $buildArch = 'Win32'
+}
+if ($build -eq 'Win32') {
+
+} elseif ($build -eq 'x64') {
+
+} else {
+    "Error: Architicture should be x64 Or x86 ONLY"
+    exit
+}
+
 
 Install-TdLib
 "Building C# $buildArch Release.."
