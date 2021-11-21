@@ -1,15 +1,18 @@
+
+# Note: in functions app used Set-Location instead of cd because of Powershell analyser problem in VSCode
+
 function Build-TdLib {
     param ($arch, $outputDir)
 
     # Initializing folder
     Remove-Item $outputDir -Force -Recurse -ErrorAction SilentlyContinue
     mkdir $outputDir
-    cd $outputDir
+    Set-Location $outputDir
 
     # Building
     cmake -A $arch -DCMAKE_INSTALL_PREFIX:PATH=../tdlib -DTD_ENABLE_DOTNET=ON -DCMAKE_TOOLCHAIN_FILE:FILEPATH=../vcpkg/scripts/buildsystems/vcpkg.cmake ..
     cmake --build . --target install --config Release
-    cd ..
+    Set-Location ..
     git checkout td/telegram/Client.h td/telegram/Log.h td/tl/TlObject.h
 }
 
@@ -17,11 +20,11 @@ function Install-TdLib {
     $td = './td'
     "$td"
     if (Test-Path -Path $td) {
-        cd td
+        Set-Location td
         git pull
     } else {
         git clone https://github.com/tdlib/td.git
-        cd td
+        Set-Location td
         git clone https://github.com/Microsoft/vcpkg.git
         cd vcpkg
         ./bootstrap-vcpkg.bat
@@ -30,6 +33,14 @@ function Install-TdLib {
     }
 }
 
+function Display-Help {
+    "This is help message in C# Building Script"
+    "/o <string> === You should provide output folder name [Optional]"
+    "/a <string> === You should provide building architicture (`x64` Or `Win32`) [Optional]"
+    "/h === Display this help message"
+}
+
+# Archiricture should be "x64" Or "Win32" ONLY
 $buildArch = 'x64'
 $outputFolder = "build$arch" + 'csharp'
 for ($i = 0; $i -lt $args.count; $i++) {
@@ -37,6 +48,8 @@ for ($i = 0; $i -lt $args.count; $i++) {
     if ($args[$i] -eq "-o"){ $outputFolder = $args[ $i+1 ]}
     if ($args[$i] -eq "/a"){ $buildArch = $args[ $i+1 ]}
     if ($args[$i] -eq "-a"){ $buildArch = $args[ $i+1 ]}
+    if ($args[$i] -eq "-h"){ Display-Help; exit }
+    if ($args[$i] -eq "/h"){ Display-Help; exit }
 }
 
 Install-TdLib
