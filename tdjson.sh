@@ -38,10 +38,12 @@ if ($1 == '-o')
 # Display help message
 if [$1 == '-h'] || [$1 == '--help'] {
     echo "This is help message for TDJson Building Script"
+    echo "This needs sudo admins, Because it'll install git, clang, cmake, gperf, zlib, And OpenSSL"
     echo "-o <string> == To provide building directory name, Default is \"buildphp\""
-    echo "-h == Get this help message"
+    echo "-h || --help == Get this help message and exit"
 }
 
+"Installing TDLib.."
 InstallTdLib
 echo "Building TDJson Release.."
 BuildTdLib $outputFolder

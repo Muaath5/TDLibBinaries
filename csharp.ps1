@@ -17,6 +17,12 @@ function Build-TdLib {
 }
 
 function Install-TdLib {
+    param ($arch)
+
+    if ($arch -eq 'Win32') {
+        $arch = 'x86'
+    }
+
     $td = './td'
     "$td"
     if (Test-Path -Path $td) {
@@ -28,49 +34,67 @@ function Install-TdLib {
         git clone https://github.com/Microsoft/vcpkg.git
         cd vcpkg
         ./bootstrap-vcpkg.bat
-        ./vcpkg.exe install gperf:x64-windows openssl:x64-windows zlib:x64-windows
+        ./vcpkg.exe install gperf:$arch-windows openssl:$arch-windows zlib:$arch-windows
         cd ..
     }
 }
 
-function Display-Help {
+function Show-Help {
     "This is help message in C# Building Script"
+    "You'll need to install git and cmake"
+    "You should has at least 1.5 GB free needed for building"
+    "Building may clone TDLib and install vcpkg.exe"
     '/o <string> === New output folder name, Default = build + $a + csharp [Optional]'
     "/a <string> === You should provide building architicture (`x64` Or `x86`) [Optional]"
-    "/h === Display this help message"
+    "/h || /help === Show this help message and exit"
 }
 
 # Archiricture should be "x64" Or "Win32" ONLY
 $buildArch = 'x64'
 $outputFolder = "build$buildArch" + 'csharp'
+$version = 'New'
 
 # Reading command line input
 for ($i = 0; $i -lt $args.count; $i++) {
+    # Output
     if ($args[$i] -eq "/o"){ $outputFolder = $args[ $i+1 ]}
     if ($args[$i] -eq "-o"){ $outputFolder = $args[ $i+1 ]}
+    if ($args[$i] -eq "/out"){ $outputFolder = $args[ $i+1 ]}
+    if ($args[$i] -eq "--out"){ $outputFolder = $args[ $i+1 ]}
+
+    # Arch
     if ($args[$i] -eq "/a"){ $buildArch = $args[ $i+1 ]}
     if ($args[$i] -eq "-a"){ $buildArch = $args[ $i+1 ]}
-    if ($args[$i] -eq "-h"){ Display-Help; exit }
-    if ($args[$i] -eq "/h"){ Display-Help; exit }
-    if ($args[$i] -eq "--help"){ Display-Help; exit }
-    if ($args[$i] -eq "/help"){ Display-Help; exit }
+    if ($args[$i] -eq "/arch"){ $buildArch = $args[ $i+1 ]}
+    if ($args[$i] -eq "--arch"){ $buildArch = $args[ $i+1 ]}
+
+    # Version
+    if ($args[$i] -eq "/v"){ $version = $args[ $i+1 ]}
+    if ($args[$i] -eq "-v"){ $version = $args[ $i+1 ]}
+    if ($args[$i] -eq "/version"){ $version = $args[ $i+1 ]}
+    if ($args[$i] -eq "--version"){ $version = $args[ $i+1 ]}
+
+    # Help
+    if ($args[$i] -eq "-h"){ Show-Help; exit }
+    if ($args[$i] -eq "/h"){ Show-Help; exit }
+    if ($args[$i] -eq "--help"){ Show-Help; exit }
+    if ($args[$i] -eq "/help"){ Show-Help; exit }
 }
 # Fixing user error
-if ($buildArch -eq 'x86')
-{
-    $buildArch = 'Win32'
-}
-if ($build -eq 'Win32') {
+if ($buildArch -eq 'x86') { $buildArch = 'Win32' }
 
-} elseif ($build -eq 'x64') {
-
-} else {
-    "Error: Architicture should be x64 Or x86 ONLY"
-    exit
+# Check wrong architctures before building
+if ($buildArch -ne 'Win32' -And $buildArch -ne 'x64') {
+    "Error: Architicture should be x64 Or x86 (Win32) ONLY, $buildArch isn't acceptable"
+    exit 1
 }
 
-
-Install-TdLib
+"Installing TDLib.."
+Install-TdLib $buildArch
 "Building C# $buildArch Release.."
 Build-TdLib $buildArch $outputFolder
-"Binaries are ready in $outputFolder/Release/"
+"Binaries are ready in ./td/bin/"
+if ($buildArch -eq 'Win32') { $buildArch = 'x86' }
+$copyFolder = "./c#/windows/v$version/$buildArch/release/"
+"Binaries should be copied into $copyFolder.."
+# Coping output from td/bin/ to $copyFolder
