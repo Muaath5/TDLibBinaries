@@ -1,9 +1,14 @@
 # TDLib Binaries
+**Visit our _[Telegram channel!](https://t.me/TDLibBinaries)_**
+
+**Last TDLib version:** 1.8.1
+
 This repository contains prebuilt [TDLib](https://github.com/tdlib/td) binaries, for anyone to use.
 
 ## Available languages
 | Language      | Version  | Architectures | Debug Or Release | Operating System(s) | Notes                                                                                   |
 |---------------|----------|---------------|------------------|---------------------|-----------------------------------------------------------------------------------------|
+| C#            |  1.8.0   | x64           | Release          | Windows             |                                     C++/CLI                                             |
 | C#            |  1.7.10  | x64           | Release          | Windows             |                                     C++/CLI                                             |
 | C#            |  1.7.9   | x64           | Release          | Windows             |                                     C++/CLI                                             |
 | C#            |  1.7.8   | x64 & x86     | Release          | Windows             |                                     C++/CLI                                             |
@@ -25,8 +30,8 @@ You can contribute by doing one of these things:
 ### Adding binaries
 1. On your fork, create a directory with the following path: (from outer to inner folder)
     1. Language/variant (`c#`, `jni`, `tdweb`, `tdjson`, etc.)
-    2. Version (`v1.0.0`, `v1.7.0`, `v1.7.8`, etc.)
-    3. Operating system (`windows`, `linux`, `macOS`, `iOS`, `Android`, etc.)
+    2. Operating system (`windows`, `linux`, `macOS`, `iOS`, `Android`, etc.)
+    3. Version (`v1.0.0`, `v1.7.0`, `v1.7.8`, etc.)
     4. Processor architecture (`x86`, `x64`, `ARM`, `ARM64`, etc.)
     5. Build type (`debug` Or `release`)
   Example: `/c#/1.7.9/windows/x64/release`
@@ -34,7 +39,7 @@ You can contribute by doing one of these things:
 3. Add the info about the binary to the README table
 
 ### Creating script
-Terms of script:
+Terms:
 - Printing help message if argument `-h` or `--help` passed.
 - It should be with extensions `.ps1` or `.sh`
 - Script should has functions `InstallTdLib` and `BuildTdLib` at least
