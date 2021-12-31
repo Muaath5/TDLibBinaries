@@ -16,10 +16,11 @@ This repository contains prebuilt [TDLib](https://github.com/tdlib/td) binaries,
 | JavaScript    |  1.7.8   |       -       |        -         | Web                 | Also published at <https://npmjs.com/package/@dibgram/tdweb>                            |
 | JavaScript    |  1.7.2   |       -       |        -         | Web                 | This version is downloaded from the NPM registry (<https://npmjs.com/package/tdweb>)    |
 | JavaScript    |  1.7.0   |       -       |        -         | Web                 | This version might not save sessions and need a login on every refresh                  |
+| TDJson        |  1.8.0   | All*[1]       | Release          | Linux/Ubuntu 20.04  | This binary is same as that of Python, PHP, and any other language that can call C libs |
 | TDJson        |  1.7.9   | All*[1]       | Release          | Linux/Ubuntu 20.04  | This binary is same as that of Python, PHP, and any other language that can call C libs |
 
 **Notes:**
-1. TDJson will use int64, So you'll need an x64 in PHP and some other programming languages
+1. TDJson will use int64 for user IDs, So you'll need an x64 in PHP and some other programming languages
 
 ## Contributions
 You can contribute by doing one of these things:

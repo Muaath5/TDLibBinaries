@@ -18,8 +18,7 @@ function InstallTdLib {
     sudo apt-get install make git zlib1g-dev libssl-dev gperf php-cli cmake clang-10 libc++-dev libc++abi-dev
 
     # Updating/Cloning TDLib
-    if [ -d td ] # If "td" was a directory
-    then
+    if [ -d td ]; then # If "td" was a directory
         cd td
         git pull
         echo "TDLib repo was updated"
@@ -30,21 +29,23 @@ function InstallTdLib {
     fi
 }
 
-outputFolder="buildphp"
-if ($1 == '-o')
-{
+outputFolder='buildTdJson'
+if [$1 -eq '-o']; then
     $outputFolder = $2;
-}
+fi
+
 # Display help message
-if [$1 == '-h'] || [$1 == '--help'] {
+if [$1 -eq '-h'] || [$1 -eq '--help']; then
     echo "This is help message for TDJson Building Script"
     echo "This needs sudo admins, Because it'll install git, clang, cmake, gperf, zlib, And OpenSSL"
-    echo "-o <string> == To provide building directory name, Default is \"buildphp\""
+    echo "-o <string> == To provide building directory name, Default is \"buildTdJson\""
     echo "-h || --help == Get this help message and exit"
-}
+    exit
+fi
 
 "Installing TDLib.."
 InstallTdLib
 echo "Building TDJson Release.."
 BuildTdLib $outputFolder
-echo "Binaries are ready in $outputFolder/Release/"
+cd ..
+echo "Binaries are ready in ./td/tdlib/lib/"
