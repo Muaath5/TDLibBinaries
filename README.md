@@ -1,11 +1,11 @@
 # TDLib Binaries
 **Visit our _[Telegram channel!](https://t.me/TDLibBinaries)_**
 
-**Last TDLib version:** 1.8.1
+**Last TDLib version:** 1.8.0
 
-This repository contains prebuilt [TDLib](https://github.com/tdlib/td) binaries, for anyone to use.
+This repository contains prebuilt [TDLib](https://github.com/tdlib/td) binaries.
 
-## Available languages
+## Available binaries
 | Language      | Version  | Architectures | Debug Or Release | Operating System(s) | Notes                                                                                   |
 |---------------|----------|---------------|------------------|---------------------|-----------------------------------------------------------------------------------------|
 | C#            |  1.8.0   | x64           | Release          | Windows             |                                     C++/CLI                                             |
@@ -18,6 +18,8 @@ This repository contains prebuilt [TDLib](https://github.com/tdlib/td) binaries,
 | JavaScript    |  1.7.0   |       -       |        -         | Web                 | This version might not save sessions and need a login on every refresh                  |
 | TDJson        |  1.8.0   | All*[1]       | Release          | Linux/Ubuntu 20.04  | This binary is same as that of Python, PHP, and any other language that can call C libs |
 | TDJson        |  1.7.9   | All*[1]       | Release          | Linux/Ubuntu 20.04  | This binary is same as that of Python, PHP, and any other language that can call C libs |
+
+You can use get TDWeb binaries in [DIBgram/tdweb](https://github.com/DIBgram/tdweb)
 
 **Notes:**
 1. TDJson will use int64 for user IDs, So you'll need an x64 in PHP and some other programming languages
@@ -35,7 +37,7 @@ You can contribute by doing one of these things:
     3. Version (`v1.0.0`, `v1.7.0`, `v1.7.8`, etc.)
     4. Processor architecture (`x86`, `x64`, `ARM`, `ARM64`, etc.)
     5. Build type (`debug` Or `release`)
-  Example: `/c#/1.7.9/windows/x64/release`
+  Example: `/c#/windows/v1.7.9/x64/release/`
 2. Upload the binaries into that folder
 3. Add the info about the binary to the README table
 
@@ -53,4 +55,4 @@ git clone https://github.com/Muaath5/TDLibBinaries.git --recursive
 ```
 Then execute any script you like, And follow [_AddBinaries_ explanation](#adding-binaries)
 ___
-After that, You can submit to help community to create apps based on TDLib.
+After that, you can submit a pull request to help community creating apps based on TDLib :)
