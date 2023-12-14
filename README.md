@@ -1,7 +1,7 @@
 # TDLib Binaries
 **Visit our _[Telegram channel!](https://t.me/TDLibBinaries)_**
 
-**Last TDLib version:** 1.8.0
+**Last TDLib version:** `1.8.22`
 
 This repository contains prebuilt [TDLib](https://github.com/tdlib/td) binaries.
 
@@ -42,13 +42,16 @@ You can contribute by doing one of these things:
 3. Add the info about the binary to the README table
 
 ### Creating script
-Terms:
+**Terms:**
 - Printing help message if argument `-h` or `--help` passed.
 - It should be with extensions `.ps1` or `.sh`
 - Script should has functions `InstallTdLib` and `BuildTdLib` at least
 
 ### Running script
-Make sure you has 1.5 GB **free** of RAM.
+**Requirements:**
+- At least 1.5 free GB of RAM
+- Running as administrator
+
 At first you should clone this repo **_recursively_**:
 ```
 git clone https://github.com/Muaath5/TDLibBinaries.git --recursive
